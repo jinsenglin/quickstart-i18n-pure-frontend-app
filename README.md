@@ -38,6 +38,35 @@ curl http://localhost:8080/zh-TW/
 curl http://localhost:8080/zh-CN/
 ```
 
+Note
+
+* Use Apache2 to detect accept-language and then to rewrite request path
+
+
+Apache2 Configuration
+
+```
+<VirtualHost *:80>
+  ServerName www.myapp.com
+  DocumentRoot /var/www
+  <Directory "/var/www">
+    RewriteEngine on
+    RewriteBase /
+    RewriteRule ^../index\.html$ - [L]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule (..) $1/index.html [L]
+    RewriteCond %{HTTP:Accept-Language} ^fr [NC]
+    RewriteRule ^$ /fr/ [R]
+    RewriteCond %{HTTP:Accept-Language} ^es [NC]
+    RewriteRule ^$ /es/ [R]
+    RewriteCond %{HTTP:Accept-Language} !^es [NC]
+    RewriteCond %{HTTP:Accept-Language} !^fr [NC]
+    RewriteRule ^$ /en/ [R]
+  </Directory>
+</VirtualHost>
+```
+
 Reference
 
 * https://medium.com/@feloy/deploying-an-i18n-angular-app-with-angular-cli-fc788f17e358
