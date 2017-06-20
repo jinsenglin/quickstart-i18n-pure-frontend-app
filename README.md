@@ -56,12 +56,18 @@ Apache2 Configuration
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule (..) $1/index.html [L]
-    RewriteCond %{HTTP:Accept-Language} ^fr [NC]
-    RewriteRule ^$ /fr/ [R]
-    RewriteCond %{HTTP:Accept-Language} ^es [NC]
-    RewriteRule ^$ /es/ [R]
-    RewriteCond %{HTTP:Accept-Language} !^es [NC]
-    RewriteCond %{HTTP:Accept-Language} !^fr [NC]
+    RewriteCond %{HTTP:Accept-Language} ^ja [NC]
+    RewriteRule ^$ /ja/ [R]
+    RewriteCond %{HTTP:Accept-Language} ^ko [NC]
+    RewriteRule ^$ /ko/ [R]
+    RewriteCond %{HTTP:Accept-Language} ^zh-TW [NC]
+    RewriteRule ^$ /zh-TW/ [R]
+    RewriteCond %{HTTP:Accept-Language} ^zh-CN [NC]
+    RewriteRule ^$ /zh-CN/ [R]
+    RewriteCond %{HTTP:Accept-Language} !^ja [NC]
+    RewriteCond %{HTTP:Accept-Language} !^ko [NC]
+    RewriteCond %{HTTP:Accept-Language} !^zh-TW [NC]
+    RewriteCond %{HTTP:Accept-Language} !^zh-CN [NC]
     RewriteRule ^$ /en/ [R]
   </Directory>
 </VirtualHost>
