@@ -26,3 +26,11 @@ Before running the tests make sure you are serving the app via `ng serve`.
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## +D3.js
+
+References
+
+* https://github.com/datencia/d3js-angular2-example
+* https://keathmilligan.net/create-reusable-chart-components-with-angular-2-and-d3-js-version-4/
+
