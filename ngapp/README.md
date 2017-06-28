@@ -29,6 +29,13 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## +D3.js
 
+Install Extra Packages
+
+```
+npm install --save d3
+npm install --save-dev @types/d3
+```
+
 References
 
 * https://github.com/datencia/d3js-angular2-example
